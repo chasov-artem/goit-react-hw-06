@@ -1,0 +1,16 @@
+.searchBox {
+  margin: 20px 0;
+}
+
+.searchLabel {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.searchInput {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
