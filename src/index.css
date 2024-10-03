@@ -22,32 +22,51 @@ a:hover {
   color: #535bf2;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url("https://art-fotoshpalery.com.ua/69434-large_default/product-20401010040.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: rgb(255, 255, 255);
+}
+
+label {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+li {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 18px;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  background-color: #ff7875;
 }
 button:focus,
 button:focus-visible {
@@ -61,8 +80,5 @@ button:focus-visible {
   }
   a:hover {
     color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
