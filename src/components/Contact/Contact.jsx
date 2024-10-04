@@ -1,10 +1,13 @@
+import { useDispatch } from "react-redux";
 import styles from "./Contact.module.css";
 import { IoAccessibility, IoCall } from "react-icons/io5";
+import { deleteContact } from "../../redux/contactsSlice";
 
-const Contact = ({ name, number, onDelete }) => {
+const Contact = ({ name, number, id }) => {
+  const dispatch = useDispatch();
   return (
     <div className={styles.cardWrap}>
-      <li className={styles.textWrap}>
+      <div className={styles.textWrap}>
         <span className={styles.name}>
           {" "}
           <IoAccessibility />
@@ -15,8 +18,12 @@ const Contact = ({ name, number, onDelete }) => {
           <IoCall />
           {number}
         </span>
-      </li>
-      <button type="button" className={styles.button} onClick={onDelete}>
+      </div>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => dispatch(deleteContact(id))}
+      >
         Delete
       </button>
     </div>

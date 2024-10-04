@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState, useEffect } from "react";
 import ContactList from "./components/ContactList/ContactList";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
@@ -11,21 +12,39 @@ const INITIAL_STATE = [
 ];
 
 const App = () => {
-  const contactName = useSelector((state) => state.contact.name);
-  const contactNumber = useSelector((state) => state.contact.number);
-  const addContact = () => {};
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = window.localStorage.getItem("contacts");
+    return savedContacts ? JSON.parse(savedContacts) : INITIAL_STATE;
+  });
+  const [filter, setFilter] = useState("");
 
-  const deleteContact = () => {};
+  useEffect(() => {
+    window.localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
-  const handleFilterChange = () => {};
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => [...prevContacts, newContact]);
+  };
 
-  const filteredContacts = () => {};
+  const deleteContact = (contactID) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== contactID)
+    );
+  };
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} />
-      <SearchBox onFilterChange={handleFilterChange} />
+      <SearchBox filter={filter} onFilterChange={handleFilterChange} />
       <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </div>
   );
