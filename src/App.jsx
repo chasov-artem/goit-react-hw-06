@@ -5,7 +5,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
@@ -13,4 +13,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;

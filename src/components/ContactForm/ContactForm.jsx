@@ -22,7 +22,8 @@ const initialValues = {
 };
 
 const ContactForm = () => {
-  const dispatch = useDispatch(addContact());
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     const newContact = { id: nanoid(), ...values };
     dispatch(addContact(newContact));

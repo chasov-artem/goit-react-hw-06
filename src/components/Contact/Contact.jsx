@@ -9,12 +9,10 @@ const Contact = ({ name, number, id }) => {
     <div className={styles.cardWrap}>
       <div className={styles.textWrap}>
         <span className={styles.name}>
-          {" "}
           <IoAccessibility />
           {name}
         </span>
         <span className={styles.number}>
-          {" "}
           <IoCall />
           {number}
         </span>
